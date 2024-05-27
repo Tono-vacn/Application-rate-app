@@ -1,6 +1,7 @@
-// import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar';
 // import { StyleSheet, Text, View, Pressable, Alert } from 'react-native';
 import Main from './src/components/Main';
+import { NativeRouter } from 'react-router-native';
 
 // const PressableComponent = () => {
 //   const onPressFunction = () => {
@@ -17,12 +18,12 @@ import Main from './src/components/Main';
 
 export default function App() {
   return (
-    <Main />
-    // <View style={styles.container}>
-    //   <PressableComponent />
-    //   <Text>Open up App.js to start working on your app!{console.log("test")}</Text>
-    //   <StatusBar style="auto" />
-    // </View>
+    <>
+    <NativeRouter>
+      <Main />
+    </NativeRouter>
+    <StatusBar style="auto" />
+    </>
   );
 }
 

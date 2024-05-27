@@ -1,5 +1,6 @@
 import { View, StyleSheet, Image } from 'react-native';
 // import Constants from 'expo-constants';
+// import Link from 'react-router-native';
 import Text from './Text';
 const styles = StyleSheet.create({
   container: {
@@ -57,7 +58,6 @@ const transNumber = (num) => {
 
 const RepositoryItem = ({ item }) => {
   return (<View key={item.id} style={styles.container}>
-
     {/* show avatar here */}
     <View style={styles.up_part}>
       <Image style={{
