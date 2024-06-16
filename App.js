@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 // import { StyleSheet, Text, View, Pressable, Alert } from 'react-native';
 import Main from './src/components/Main';
 import { NativeRouter } from 'react-router-native';
+import { ApolloProvider } from '@apollo/client';
+import createApolloClient from './src/utils/apolloClient';
 
 // const PressableComponent = () => {
 //   const onPressFunction = () => {
@@ -16,11 +18,15 @@ import { NativeRouter } from 'react-router-native';
 //   );
 // };
 
+const apolloClient = createApolloClient();
+
 export default function App() {
   return (
     <>
     <NativeRouter>
-      <Main />
+      <ApolloProvider client={apolloClient}>
+        <Main />
+      </ApolloProvider>
     </NativeRouter>
     <StatusBar style="auto" />
     </>
