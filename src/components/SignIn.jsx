@@ -2,6 +2,20 @@ import Text from './Text';
 import FormikTextInput from './FormikTextInput';
 import { View, Pressable, StyleSheet, useWindowDimensions } from 'react-native';
 import { Formik } from 'formik';
+import * as yup from 'yup';
+
+const validationSchema = yup.object().shape({
+  Username: yup
+    .string()
+    .min(1, 'Username is too short')
+    .max(30, 'Username is too long')
+    .required('Username is required'),
+  Password: yup
+    .string()
+    .min(5, 'Password is too short')
+    .max(50, 'Password is too long')
+    .required('Password is required'),
+});
 // import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const styles = StyleSheet.create({
@@ -45,7 +59,11 @@ const SignIn = () => {
   const { width } = useWindowDimensions();
 
   return (
-    <Formik initialValues={{ Username: '', Password: '' }} onSubmit={(values) => console.log(values)}>
+    <Formik 
+    initialValues={{ Username: '', Password: '' }} 
+    onSubmit={(values) => console.log(values)}
+    validationSchema={validationSchema}
+    >
       {({ handleSubmit }) => (
         <View style={styles.container}>
           <FormikTextInput name="Username" placeholder="Username" style={

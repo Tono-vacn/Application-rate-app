@@ -4,9 +4,12 @@ import { useField } from 'formik';
 import TextInput from './TextInput';
 import Text from './Text';
 
+
 const styles = StyleSheet.create({
   errorText: {
-    marginTop: 5,
+    marginTop: 2,
+    marginBottom: 2,
+    color: '#d73a4a',
   },
 });
 
